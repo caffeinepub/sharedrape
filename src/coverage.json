@@ -1,0 +1,38 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-19T17:11:54.805Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 1,
+    "implemented": 1,
+    "items": [
+      {
+        "id": "REQ-26",
+        "summary": "Fix the Select.Item empty value prop error in the DressFilters component by ensuring all Select.Item components have non-empty string values for size, occasion, color, and city filters",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/DressFilters.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/DressFilters.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/DressFilters.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

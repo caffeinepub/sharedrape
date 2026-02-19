@@ -1,0 +1,333 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "ShareDrape (or CoVogue) - A luxury fashion co-ownership platform where users can share designer dresses in groups. Features group ownership, rotation scheduling, AI damage detection, escrow payments via Stripe, authentication, real-time chat, and resale marketplace. Premium UI with rose pink, ivory, charcoal, and gold palette. Built with React, TypeScript, and Motoko backend on Internet Computer.",
+  "architectural_notes": [
+    "Frontend: React + TypeScript + Tailwind CSS + Framer Motion for animations",
+    "Backend: Motoko (Internet Computer) instead of Node.js/Express/MongoDB",
+    "Storage: Cloudinary for dress photos and cleaning certificates",
+    "Payments: Stripe integration (adjusted from Razorpay) with escrow simulation",
+    "Real-time: Socket.io for group chat functionality",
+    "AI Integration: OpenAI Vision API or Clarifai for damage detection via image comparison",
+    "UI Theme: Premium fashion aesthetic - Playfair Display (headings) + DM Sans (body), mobile-first responsive design",
+    "Color Palette: Deep rose pink (#E91E63), ivory white (#FFF8F0), charcoal (#1C1C1C), gold accent (#FFD700)",
+    "Business Logic: 10-15% platform commission, priority slot fees to initiator, 10% deposits per person, resale proceeds distributed proportionally",
+    "Security: JWT authentication + Google OAuth, proper error handling, form validation, environment variable configuration"
+  ],
+  "known_issues": [
+    "Browse dresses page throws error: Select.Item components have empty string value props causing placeholder conflicts"
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-landing-page-with-animated-hero-section-displaying-own-less-wear-more-trending-group-buy-listings-carousel-3-step-visual-how-it-works-section-trust-badges-escrow-payments-ai-damage-detection-verified-cleaning-and-ctas-for-start-a-group-and-join-a-group",
+      "title": "Create landing page with animated hero section displaying 'Own Less. Wear More.', trending group-buy listings carousel, 3-step visual 'How it works' section, trust badges (Escrow payments, AI damage detection, verified cleaning), and CTAs for 'Start a Group' and 'Join a Group'",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-authentication-system-with-email-password-signup-and-login-using-internet-identity-profile-setup-flow-collecting-name-body-measurements-bust-waist-hip-city-and-profile-photo-upload-and-display-trust-score-out-of-5-stars-based-on-ratings-received",
+      "title": "Implement authentication system with email/password signup and login using Internet Identity, profile setup flow collecting name, body measurements (bust/waist/hip), city, and profile photo upload, and display trust score out of 5 stars based on ratings received",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-dress-listings-page-with-filter-options-size-color-city-price-range-occasion-wedding-party-formal-search-bar-with-autocomplete-and-card-layout-displaying-dress-photo-original-price-per-person-share-cost-slots-filled-e-g-2-4-and-occasion-tag",
+      "title": "Build dress listings page with filter options (size, color, city, price range, occasion: wedding/party/formal), search bar with autocomplete, and card layout displaying dress photo, original price, per-person share cost, slots filled (e.g., 2/4), and occasion tag",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-dress-detail-page-with-image-gallery-carousel-dress-details-color-size-brand-occasion-original-price-authenticity-proof-viewer-for-bill-receipt-uploads-group-slots-visual-showing-filled-empty-slots-with-member-avatars-rotation-schedule-timeline-showing-who-gets-dress-when-priority-slot-pricing-display-slot-1-3000-slot-2-2000-slot-3-1000-slot-4-free-request-to-join-button-triggering-chat-with-initiator-and-cleaning-history-log-with-certificates-and-before-after-photos",
+      "title": "Create dress detail page with image gallery carousel, dress details (color, size, brand, occasion, original price), authenticity proof viewer for bill/receipt uploads, group slots visual showing filled/empty slots with member avatars, rotation schedule timeline showing who gets dress when, priority slot pricing display (Slot 1 +₹3000, Slot 2 +₹2000, Slot 3 +₹1000, Slot 4 free), 'Request to Join' button triggering chat with initiator, and cleaning history log with certificates and before/after photos",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-multi-step-group-creation-form-with-step-1-upload-minimum-3-dress-photos-with-optional-product-link-step-2-enter-dress-details-brand-color-size-occasion-original-price-step-3-upload-authenticity-proof-bill-receipt-step-4-set-group-size-3-or-4-and-rotation-city-hub-preference-step-5-configure-slot-pricing-with-auto-calculated-or-customizable-priority-fees-step-6-preview-and-publish-listing",
+      "title": "Build multi-step group creation form with Step 1: upload minimum 3 dress photos with optional product link, Step 2: enter dress details (brand, color, size, occasion, original price), Step 3: upload authenticity proof (bill/receipt), Step 4: set group size (3 or 4) and rotation city/hub preference, Step 5: configure slot pricing with auto-calculated or customizable priority fees, Step 6: preview and publish listing",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-group-dashboard-with-real-time-chat-using-internet-computer-s-websocket-capabilities-or-polling-rotation-tracker-with-visual-timeline-showing-current-holder-next-person-and-dates-status-indicators-awaiting-delivery-in-use-at-cleaner-in-transit-handover-flow-where-current-user-uploads-condition-photos-and-confirms-dispatch-next-user-confirms-receipt-and-condition-platform-releases-payment-share-to-previous-user-cleaning-tab-for-uploading-cleaning-certificate-before-after-photos-dry-cleaner-details-and-deposit-status-display-for-each-member",
+      "title": "Implement group dashboard with real-time chat using Internet Computer's WebSocket capabilities or polling, rotation tracker with visual timeline showing current holder, next person, and dates, status indicators (Awaiting delivery, In use, At cleaner, In transit), handover flow where current user uploads condition photos and confirms dispatch, next user confirms receipt and condition, platform releases payment share to previous user, cleaning tab for uploading cleaning certificate, before/after photos, dry cleaner details, and deposit status display for each member",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-payment-and-escrow-system-using-stripe-where-initiator-pays-full-dress-price-upfront-other-members-pay-their-share-percentage-to-escrow-priority-slot-fees-add-to-member-shares-funds-release-per-handover-confirmation-and-resale-proceeds-auto-distribute-proportionally-after-final-sale-with-platform-taking-10-15-commission",
+      "title": "Build payment and escrow system using Stripe where initiator pays full dress price upfront, other members pay their share percentage to escrow, priority slot fees add to member shares, funds release per handover confirmation, and resale proceeds auto-distribute proportionally after final sale with platform taking 10-15% commission",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-resale-marketplace-that-auto-lists-dresses-after-all-rotations-complete-displays-condition-grade-based-on-ai-analysis-and-user-reports-sets-resale-price-using-platform-algorithm-or-initiator-override-processes-buyer-payment-splits-funds-proportionally-to-all-group-members-and-deducts-platform-commission",
+      "title": "Create resale marketplace that auto-lists dresses after all rotations complete, displays condition grade based on AI analysis and user reports, sets resale price using platform algorithm or initiator override, processes buyer payment, splits funds proportionally to all group members, and deducts platform commission",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-style-circles-feature-allowing-users-to-create-join-permanent-groups-e-g-delhi-wedding-squad-size-m-mumbai-girls-view-shared-closet-of-all-dresses-the-circle-has-owned-is-using-access-private-group-chat-and-enable-circle-members-to-initiate-new-group-buys-directly-within-the-circle",
+      "title": "Implement Style Circles feature allowing users to create/join permanent groups (e.g., 'Delhi Wedding Squad', 'Size M Mumbai Girls'), view shared closet of all dresses the circle has owned/is using, access private group chat, and enable circle members to initiate new group buys directly within the circle",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-user-profile-page-displaying-active-groups-with-status-past-wears-with-ratings-received-trust-score-with-badge-verified-trusted-star-sharer-earnings-from-resale-and-deposit-history",
+      "title": "Build user profile page displaying active groups with status, past wears with ratings received, trust score with badge (Verified, Trusted, Star Sharer), earnings from resale, and deposit history",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-admin-panel-to-manage-listings-flag-disputes-verify-cleaning-partner-uploads-view-escrow-status-and-handle-dropouts-by-opening-slot-notifying-waitlist-and-processing-refunds",
+      "title": "Create admin panel to manage listings, flag disputes, verify cleaning partner uploads, view escrow status, and handle dropouts by opening slot, notifying waitlist, and processing refunds",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-notification-system-providing-email-and-in-app-notifications-for-rotation-dates-approaching-payment-released-new-chat-messages-damage-flagged-and-resale-completion",
+      "title": "Build notification system providing email and in-app notifications for rotation dates approaching, payment released, new chat messages, damage flagged, and resale completion",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-cleaning-partner-portal-with-separate-login-allowing-dry-cleaners-to-upload-certificates-and-photos-directly-to-group-dashboard",
+      "title": "Create cleaning partner portal with separate login allowing dry cleaners to upload certificates and photos directly to group dashboard",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-rotation-countdown-timer-displaying-live-countdown-to-next-handover-date-on-group-dashboard",
+      "title": "Implement rotation countdown timer displaying live countdown to next handover date on group dashboard",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-premium-fashion-ui-theme-with-deep-rose-pink-e91e63-ivory-white-fff8f0-charcoal-1c1c1c-and-gold-accent-ffd700-color-palette-playfair-display-for-headings-and-dm-sans-for-body-text-mobile-first-responsive-design-smooth-page-transitions-hover-effects-on-cards-loading-skeletons-and-product-cards-with-image-carousels-progress-bars-for-group-fill-status-and-countdown-timers",
+      "title": "Apply premium fashion UI theme with deep rose pink (#E91E63), ivory white (#FFF8F0), charcoal (#1C1C1C), and gold accent (#FFD700) color palette, Playfair Display for headings and DM Sans for body text, mobile-first responsive design, smooth page transitions, hover effects on cards, loading skeletons, and product cards with image carousels, progress bars for group fill status, and countdown timers",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-select-item-empty-value-prop-error-in-the-dressfilters-component-by-ensuring-all-select-item-components-have-non-empty-string-values-for-size-occasion-color-and-city-filters",
+      "title": "Fix the Select.Item empty value prop error in the DressFilters component by ensuring all Select.Item components have non-empty string values for size, occasion, color, and city filters",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Landing page with hero section, trending listings carousel, how-it-works, trust badges, and CTAs",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Authentication system with email/password and Google OAuth, profile setup with measurements, trust score display",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Dress listings page with filters (size, color, city, price, occasion), search with autocomplete, card layout showing slots filled",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Dress detail page with image carousel, group slots visual, rotation timeline, priority pricing, authenticity proof viewer, cleaning history",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Multi-step group creation form: upload photos, dress details, authenticity proof, group size, rotation hub, slot pricing",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Group dashboard with real-time chat, rotation tracker, status updates, handover flow with photo uploads and confirmations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "AI damage detection using OpenAI Vision/Clarifai to compare before/after images, generate damage reports, flag issues",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Payment and escrow system with Stripe: initiator upfront payment, member share payments, priority slot fees, per-handover releases",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Resale marketplace: auto-list after rotations, condition grading, algorithm pricing, proceeds distribution, platform commission",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Style Circles feature: create/join permanent groups, shared closet view, private chat, circle-initiated group buys",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "User profile page: active groups, past wears, trust score with badges, earnings, deposit history",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Admin panel: manage listings, flag disputes, verify cleaning uploads, escrow status, dropout handling with waitlist",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Cleaning tab with certificate uploads, before/after photos, dry cleaner details, wear count tracking",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Rating system: rate members post-handover on condition/punctuality/communication, trust score calculation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Notification system: email + in-app for rotation dates, payments, chat, damage flags, resale completion",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Cleaning partner portal: separate login for dry cleaners to upload certificates and photos directly",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-23",
+      "summary": "Integrate AI damage detection to compare before/after dress images, highlight detected changes, flag damage if detected, generate automated damage report, and deduct from deposit if damage score exceeds threshold",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-29",
+      "summary": "Implement rating system allowing users to rate members post-handover on condition, punctuality, and communication (0-5 stars), calculate and update trust scores based on received ratings, and display ratings on user profiles",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-33",
+      "summary": "Implement dropout handling system where if user drops post-payment, their slot goes to waitlist, refund processes only after replacement joins and pays, with 5% buffer from platform commission covering permanent dropouts with no replacement",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-35",
+      "summary": "Store dress data including initiatorId, photos array, optional product link, details object (brand, color, size, occasion), originalPrice, authenticityProof, groupSize, and status enum (forming, active, cleaning, resale, complete) in backend canister",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-36",
+      "summary": "Store group data including dressId, members array with userId, slot number, slotFee, depositPaid boolean, and shareAmount, rotationSchedule array with userId, startDate, endDate, and status, currentHolder userId, and chatRoomId in backend canister",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-37",
+      "summary": "Store handover data including groupId, fromUserId, toUserId, dispatchPhotos array, receiptPhotos array, conditionConfirmed boolean, timestamp, damageDetected boolean, and damageReport text in backend canister",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-38",
+      "summary": "Store cleaning data including groupId, dressId, cleanerName, certificate reference, beforePhotos array, afterPhotos array, cleanedDate, and wearCount in backend canister",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-39",
+      "summary": "Store payment data including groupId, userId, amount, type enum (share, deposit, slotFee, resale), status enum (pending, escrowed, released), and Stripe payment ID in backend canister",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-40",
+      "summary": "Store rating data including raterId, rateeId, groupId, score (0-5), optional comment, and category enum (condition, punctuality, communication) in backend canister, and calculate trust scores as average of all received ratings",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-41",
+      "summary": "Store user data including name, email, Internet Identity principal, profilePhoto reference, measurements object (bust, waist, hip), city, trustScore (calculated), depositBalance, and earnings in backend canister",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "ShareDrape",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

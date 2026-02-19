@@ -1,0 +1,41 @@
+{
+  "kind": "build_request",
+  "title": "Fix Select.Item empty value prop error in dress listings filters",
+  "projectName": "ShareDrape",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-26",
+      "text": "Fix the Select.Item empty value prop error in the DressFilters component by ensuring all Select.Item components have non-empty string values for size, occasion, color, and city filters",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "A <Select.Item /> must have a value prop that is not an empty string. This is because the Select value can be set to an empty string to clear the selection and show the placeholder."
+        ]
+      },
+      "acceptanceCriteria": [
+        "All Select.Item components in DressFilters.tsx have non-empty value props",
+        "Filter dropdowns display placeholders correctly without throwing errors",
+        "Users can select filter options without encountering the Select.Item value error",
+        "Empty/default state is handled using undefined or null instead of empty strings"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify the shadcn UI Select component source code",
+    "Maintain existing filter functionality and state management",
+    "Preserve the current filter options and behavior"
+  ],
+  "nonGoals": [
+    "Adding new filter options",
+    "Changing the filter UI layout or styling",
+    "Modifying other components beyond DressFilters"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
